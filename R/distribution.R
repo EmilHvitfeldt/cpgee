@@ -16,14 +16,8 @@
 #' cpg_dist_chromosome(sample_cpgs, exclude = c("chrX", "chrY"))
 cpg_dist_chromosome <- function(x, array_type = c("450K", "EPIC"),
                                 exclude = NULL) {
-  array_type <- rlang::arg_match(array_type)
 
-  if (array_type == "450K") {
-    locations <- IlluminaHumanMethylation450kanno.ilmn12.hg19::Locations
-  }
-  if (array_type == "EPIC") {
-    locations <- IlluminaHumanMethylationEPICanno.ilm10b4.hg19::Locations
-  }
+  locations <- fetch(array_type, "location")
 
   x_df <- locations[rownames(locations) %in% x, ]
   x_df$chr = factor(x_df$chr, levels = paste0("chr", c(1:22, "X", "Y")))

@@ -21,5 +21,6 @@ Imports:
     ggplot2,
     glue,
     dplyr,
-    rlang
+    rlang,
+    tibble
 RoxygenNote: 7.0.2

@@ -7,13 +7,12 @@
 cpg_annotate_chromosome(data, var, array_type = c("450K", "EPIC"))
 }
 \arguments{
+\item{data}{A data.frame.}
+
+\item{var}{variable name containing the cpgs.}
+
 \item{array_type}{Type of array annotation data to use. Must be one of
 "450K" or "EPIC", defaults to "450K".}
-
-\item{x}{vector of cpgs}
-
-\item{exclude}{Vector of chromosomes to be excludes. Must be prefixed with
-"chr".}
 }
 \value{
 \link[tibble:tibble-package]{tibble} with two columns "chr" and "n".

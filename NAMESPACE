@@ -2,4 +2,6 @@
 
 export(cpg_annotate_chromosome)
 export(cpg_dist_chromosome)
+importFrom(rlang,":=")
 importFrom(rlang,.data)
+importFrom(rlang,.env)
