@@ -18,13 +18,18 @@ cpg_dist_chromosome <- function(x, array_type = c("450K", "EPIC"),
                                 exclude = NULL) {
 
   locations <- fetch(array_type, "location")
+  locations$chr = factor(locations$chr,
+                         levels = paste0("chr", c(1:22, "X", "Y")))
 
   x_df <- locations[rownames(locations) %in% x, ]
   x_df$chr = factor(x_df$chr, levels = paste0("chr", c(1:22, "X", "Y")))
 
   res <- dplyr::count(as.data.frame(x_df), .data$chr, .drop = FALSE)
   res <- dplyr::filter(res, !(.data$chr %in% exclude))
-  attr(res, "ref") <- dplyr::count(as.data.frame(locations), .data$chr,
-                                   .drop = FALSE)
+
+  ref <- dplyr::count(as.data.frame(locations), .data$chr, .drop = FALSE)
+  ref <- dplyr::filter(ref, !(.data$chr %in% exclude))
+
+  attr(res, "ref") <- ref
   res
 }

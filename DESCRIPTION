@@ -22,5 +22,6 @@ Imports:
     glue,
     dplyr,
     rlang,
-    tibble
+    tibble,
+    purrr
 RoxygenNote: 7.0.2
