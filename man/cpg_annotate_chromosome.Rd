@@ -2,7 +2,7 @@
 % Please edit documentation in R/annotate.R
 \name{cpg_annotate_chromosome}
 \alias{cpg_annotate_chromosome}
-\title{Calculate distribution of cpg over chromosomes}
+\title{Annotate cpgs with chromosome information}
 \usage{
 cpg_annotate_chromosome(data, var, array_type = c("450K", "EPIC"))
 }
@@ -15,10 +15,10 @@ cpg_annotate_chromosome(data, var, array_type = c("450K", "EPIC"))
 "450K" or "EPIC", defaults to "450K".}
 }
 \value{
-\link[tibble:tibble-package]{tibble} with two columns "chr" and "n".
+\link[tibble:tibble-package]{tibble} with two columns.
 }
 \description{
-Calculate distribution of cpg over chromosomes
+Annotate cpgs with chromosome information
 }
 \examples{
 cpg_annotate_chromosome(tibble::tibble(cpg = sample_cpgs), cpg)
