@@ -4,6 +4,8 @@
 #' cpgs in the array.
 #'
 #' @inheritParams cpg_dist_chromosome
+#' @param return_test If true will return test object from chisq.test. Defaults
+#'     to FALSE.
 #'
 #' @return ggplot2 object
 #' @export
@@ -13,13 +15,19 @@
 #'
 #' # Exclude sex chromosomes
 #' cpg_chisq_chromosome(sample_cpgs, exclude = c("chrX", "chrY"))
+#'
+#' cpg_chisq_chromosome(sample_cpgs, return_test = TRUE)
 cpg_chisq_chromosome <- function(x, array_type = c("450K", "EPIC"),
-                                 exclude = NULL) {
+                                 exclude = NULL, return_test = FALSE) {
   counts <- cpg_dist_chromosome(x, array_type, exclude)
 
   suppressWarnings(
     M <- stats::chisq.test(rbind(attr(counts, "ref")[["n"]], counts[["n"]]))
   )
+
+  if (return_test) {
+    return(M)
+  }
 
   data <- tibble::tibble(prop = apply(M$observed, 2, function(x) x[2] / x[1]),
                          chromosome = attr(counts, "ref")[["chr"]],

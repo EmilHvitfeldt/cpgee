@@ -25,7 +25,7 @@ cpg_annotate_region(
 "450K" or "EPIC", defaults to "450K".}
 }
 \value{
-\link[tibble:tibble-package]{tibble} with two columns.
+\link[tibble:tibble-package]{tibble::tibble-package} with two columns.
 }
 \description{
 Annotate cpg with predefined regions

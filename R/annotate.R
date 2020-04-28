@@ -26,7 +26,7 @@ cpg_annotate_chromosome <- function(data, var, array_type = c("450K", "EPIC")) {
 #' "relation_to_island", "1stExon",  "3UTR", "5UTR", "Body", "TSS1500" or
 #' "TSS200". Defaults to "relation_to_island".
 #'
-#' @return [tibble][tibble::tibble-package] with two columns.
+#' @return [tibble::tibble-package] with two columns.
 #' @export
 #'
 #' @examples
@@ -85,5 +85,3 @@ cpg_annotate_region <- function(data, var,
   res <- dplyr::bind_cols(data, tibble::tibble({{loc_var}} := .env$chr))
   dplyr::as_tibble(res)
 }
-
-
