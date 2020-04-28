@@ -1,5 +1,5 @@
 Package: cpgee
-Title: Analyse CpG data
+Title: Analyse and anotate CpG data
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emil",
